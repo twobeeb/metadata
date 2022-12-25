@@ -10,8 +10,14 @@ group = "io.conduktor.metadata"
 repositories {
     mavenCentral()
 }
+dockerfile {
+    baseImage = "ghcr.io/graalvm/graalvm-ce:ol7-java17-22.3.0-b2"
+    environmentVariable("TZ", "Europe/Paris")
 
+}
 dependencies {
+    //compileOnly 'org.projectlombok:lombok:1.18.24'
+    //annotationProcessor 'org.projectlombok:lombok:1.18.24'
     annotationProcessor("io.micronaut.data:micronaut-data-processor")
     annotationProcessor("io.micronaut:micronaut-http-validation")
     implementation("io.micronaut:micronaut-http-client")
@@ -19,6 +25,9 @@ dependencies {
     implementation("io.micronaut.data:micronaut-data-hibernate-jpa")
     implementation("io.micronaut.sql:micronaut-jdbc-hikari")
     implementation("jakarta.annotation:jakarta.annotation-api")
+    implementation ('org.jobrunr:jobrunr-micronaut-feature:5.3.2')
+    implementation("org.apache.kafka:kafka-clients:3.3.1")
+
     runtimeOnly("ch.qos.logback:logback-classic")
     runtimeOnly("org.postgresql:postgresql")
     implementation("io.micronaut:micronaut-validation")

@@ -8,7 +8,8 @@
             <pattern>%cyan(%d{HH:mm:ss.SSS}) %gray([%thread]) %highlight(%-5level) %magenta(%logger{36}) - %msg%n</pattern>
         </encoder>
     </appender>
-
+    <logger name="org.jobrunr" level="INFO" />
+    <logger name="org.hibernate" level="INFO" />
     <root level="info">
         <appender-ref ref="STDOUT" />
     </root>

@@ -12,7 +12,22 @@ netty:
       max-order: 3
 jpa:
   default:
+    entity-scan:
+      packages: 'io.conduktor.metadata.model'
     properties:
       hibernate:
+        jdbc:
+          batch_size: 50
         hbm2ddl:
           auto: update
+        show_sql: false
+jobrunr:
+  jobs:
+    default-number-of-retries: 0
+  background-job-server:
+    enabled: true
+    poll-interval-in-seconds: 5
+  job-scheduler:
+    enabled: true
+  dashboard:
+    enabled: true
